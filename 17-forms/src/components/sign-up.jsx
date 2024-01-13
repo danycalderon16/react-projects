@@ -1,10 +1,18 @@
+import { useState } from "react";
+
 export default function Signup() {
+  const [passwordsAreNotEqua , setPasswordsAreNotEqual] = useState(false)
   const handleSubmit = (event) => {
     event.preventDefault();
     const fd = new FormData(event.target);
     const acquisitionChannel = fd.getAll('acquisition');
     const data = Object.fromEntries(fd.entries());
     data['acquisition'] = acquisitionChannel
+    
+    if (data.password !== data['confirm-password']) {
+      setPasswordsAreNotEqual(true)
+      return
+    }
 
     console.log(data);
     event.target.reset();
@@ -22,7 +30,8 @@ export default function Signup() {
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" minLength={6}/>
+          <input id="password" type="password" name="password" minLength={6}
+          required/>
         </div>
 
         <div className="control">
@@ -31,9 +40,14 @@ export default function Signup() {
             id="confirm-password"
             type="password"
             name="confirm-password"
+            required
           />
+        <div className="control-error">
+
+        {passwordsAreNotEqua && <p>Passwords are not equal</p>}
         </div>
       </div>
+        </div>
 
       <hr />
 
