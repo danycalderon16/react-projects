@@ -3,7 +3,7 @@ import classes from "./CartItem.module.css";
 import { cartActions } from "../../store/cart-slice";
 
 const CartItem = (props) => {
-  const { name: title, quantity, totalPrice, price } = props.item;
+  const { title, quantity, totalPrice, price } = props.item;
   const dispatch = useDispatch();
 
   const hsndlerClickAdd = () => {
