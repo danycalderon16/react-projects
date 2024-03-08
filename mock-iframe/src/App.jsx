@@ -9,7 +9,7 @@ function App() {
     const screenHeight = window.screen.availHeight;
     const windowOptions = `width=${screenWidth}, height=${screenHeight}, top=0, left=0`;
 
-    window.open("http://localhost:3000/?token=3434", "_blank", `${windowFeatures}, ${windowOptions}`);
+    window.open("https://dev.d31tbalsqujwg0.amplifyapp.com/?token=3434", "_blank", `${windowFeatures}, ${windowOptions}`);
   }
   const handleClicCreate = () => {
 
